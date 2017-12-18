@@ -14,29 +14,29 @@ public class proximitySphere : MonoBehaviour {
         if (other.transform.parent.transform.parent.gameObject != null)
         {
             parentObj = other.transform.parent.transform.parent.gameObject;
-            
 
+           //Entry impact looks wierd TODO: fix it
             //Debug.Log(other + "ENTERED");
             if (parentObj.tag == "satelite")
             {
                 if(entryTrailPrefab != null)
                 {
-                    GameObject entryTrail = Instantiate(entryTrailPrefab, parentObj.transform.position, parentObj.transform.rotation) as GameObject;
+                    //GameObject entryTrail = Instantiate(entryTrailPrefab, parentObj.transform.position, parentObj.transform.rotation) as GameObject;
                 }
                 if (entrySpherePrefab != null)
                 {
-                    GameObject entrySphere = Instantiate(entrySpherePrefab, transform.position, Quaternion.identity) as GameObject;
-                    entrySphere.transform.LookAt(parentObj.transform);
+                    //GameObject entrySphere = Instantiate(entrySpherePrefab, transform.position, Quaternion.identity) as GameObject;
+                    //entrySphere.transform.LookAt(parentObj.transform);
                 }
                 if (entryLookCenterPrefab != null)
                 {
                     GameObject entryLookCenter = Instantiate(entryLookCenterPrefab, parentObj.transform.position, Quaternion.identity) as GameObject;
                     entryLookCenter.transform.LookAt(transform);
                 }
-                
+               
                 
                 parentObj.GetComponent<rocket>().inRange = false;              
-            }
+            } 
         }
     }
     void OnTriggerStay(Collider other)
@@ -80,7 +80,7 @@ public class proximitySphere : MonoBehaviour {
             {
                 if (exitTrailPrefab != null)
                 {
-                    GameObject exitTrail = Instantiate(exitTrailPrefab, parentObj.transform.position, parentObj.transform.rotation) as GameObject;
+                    //GameObject exitTrail = Instantiate(exitTrailPrefab, parentObj.transform.position, parentObj.transform.rotation) as GameObject;
                     
                 }
                 if (exitLookCenterPrefab != null)
